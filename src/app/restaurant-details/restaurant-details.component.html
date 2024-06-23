@@ -1,0 +1,20 @@
+<div class="detail-container">
+  <div class="detail-content">
+    <h2 class="detail-title">Restaurant Details</h2>
+    <div class="detail-item">
+      <strong>Name:</strong> {{ restaurant?.name }}
+    </div>
+    <div class="detail-item">
+      <strong>Description:</strong> {{ restaurant?.description | truncate:100 }}
+    </div>
+    <div class="detail-item">
+      <strong>Location:</strong> {{ restaurant?.location }}
+    </div>
+    <div class="detail-item">
+      <strong>Opening Hours:</strong> {{ restaurant?.openingHours }}
+    </div>
+    <div class="detail-item">
+      <strong>Contact Number:</strong> {{ restaurant?.contactNumber }}
+    </div>
+  </div>
+</div>
