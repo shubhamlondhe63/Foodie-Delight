@@ -6,8 +6,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 mongoose.connect('mongodb+srv://shubhamlondhe63:shubhamlondhe63@cluster0.kah4t4w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true
 });
 
 const db = mongoose.connection;

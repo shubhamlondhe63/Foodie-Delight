@@ -1,44 +1,73 @@
-<form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()" class="restaurant-form">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input id="name" formControlName="name" class="form-control">
-      <div *ngIf="restaurantForm.get('name')?.invalid && restaurantForm.get('name')?.touched" class="text-danger">
-        Name is required
+<p-toast />
+<p-confirmPopup />
+<div class="maindiv">
+  <form [formGroup]="restaurantForm" class="restaurant-form">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" class="form-control">
+        <div *ngIf="restaurantForm.get('name')?.invalid && restaurantForm.get('name')?.touched" class="text-danger">
+          Name is required
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="description">Description</label>
+        <input id="description" formControlName="description" class="form-control">
+        <div *ngIf="restaurantForm.get('description')?.invalid && restaurantForm.get('description')?.touched" class="text-danger">
+          Description is required
+        </div>
       </div>
     </div>
-    
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input id="description" formControlName="description" class="form-control">
-      <div *ngIf="restaurantForm.get('description')?.invalid && restaurantForm.get('description')?.touched" class="text-danger">
-        Description is required
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="location">Location</label>
+        <input id="location" formControlName="location" class="form-control">
+        <div *ngIf="restaurantForm.get('location')?.invalid && restaurantForm.get('location')?.touched" class="text-danger">
+          Location is required
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="openingHours">Opening Hours</label>
+        <input id="openingHours" formControlName="openingHours" class="form-control">
+        <div *ngIf="restaurantForm.get('openingHours')?.invalid && restaurantForm.get('openingHours')?.touched" class="text-danger">
+          Opening Hours are required
+        </div>
       </div>
     </div>
-    
-    <div class="form-group">
-      <label for="location">Location</label>
-      <input id="location" formControlName="location" class="form-control">
-      <div *ngIf="restaurantForm.get('location')?.invalid && restaurantForm.get('location')?.touched" class="text-danger">
-        Location is required
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="contactNumber">Contact Number</label>
+        <input id="contactNumber" formControlName="contactNumber" class="form-control">
+        <div *ngIf="restaurantForm.get('contactNumber')?.invalid && restaurantForm.get('contactNumber')?.touched" class="text-danger">
+          Contact Number is required
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="category">Category</label>
+        <select id="category" formControlName="category" class="form-control">
+          <option value="" disabled>Select category</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+        <div *ngIf="restaurantForm.get('category')?.invalid && restaurantForm.get('category')?.touched" class="text-danger">
+          Category is required
+        </div>
       </div>
     </div>
-    
-    <div class="form-group">
-      <label for="openingHours">Opening Hours</label>
-      <input id="openingHours" formControlName="openingHours" class="form-control">
-      <div *ngIf="restaurantForm.get('openingHours')?.invalid && restaurantForm.get('openingHours')?.touched" class="text-danger">
-        Opening Hours are required
+
+    <div formArrayName="menus" *ngFor="let menu of menus.controls; let i = index">
+      <div [formGroupName]="i" class="menu-item form-group">
+        <label for="menu-{{ i }}">Menu {{ i + 1 }}</label>
+        <input id="menu-{{ i }}" formControlName="menu" class="form-control mb-2">
+       
+        <button type="button" class="btn btn-secondary mb-3" (click)="addMenu()">Add Menu</button>
+        <button type="button" class="btn btn-danger btn-sm" (click)="removeMenu(i)">Remove</button>
       </div>
     </div>
-    
-    <div class="form-group">
-      <label for="contactNumber">Contact Number</label>
-      <input id="contactNumber" formControlName="contactNumber" class="form-control">
-      <div *ngIf="restaurantForm.get('contactNumber')?.invalid && restaurantForm.get('contactNumber')?.touched" class="text-danger">
-        Contact Number is required
-      </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary" (click)="submit($event)">{{Button}} Restaurant</button>
     </div>
-    
-    <button type="submit" class="btn btn-primary">Save</button>
   </form>
-  
+</div>

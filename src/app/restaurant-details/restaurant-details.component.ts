@@ -9,7 +9,7 @@ import { Restaurant } from '../model/restaurant.model';
   styleUrls: ['./restaurant-details.component.css']
 })
 export class RestaurantDetailsComponent implements OnInit {
-  restaurant?: Restaurant;
+  restaurant!: Restaurant;
 
   constructor(
     private route: ActivatedRoute,

@@ -1,20 +1,30 @@
-<div class="detail-container">
-  <div class="detail-content">
-    <h2 class="detail-title">Restaurant Details</h2>
+<div class="restaurant-info">
+  <div class="restaurant-header">
+    <h2>{{ restaurant.name }}</h2>
+    <p>{{ restaurant.description }}</p>
+  </div>
+  <hr>
+  <div class="restaurant-details">
     <div class="detail-item">
-      <strong>Name:</strong> {{ restaurant?.name }}
+      <strong>Location:</strong>
+      <span>{{ restaurant.location }}</span>
     </div>
     <div class="detail-item">
-      <strong>Description:</strong> {{ restaurant?.description | truncate:100 }}
+      <strong>Opening Hours:</strong>
+      <span>{{ restaurant.openingHours }}</span>
     </div>
     <div class="detail-item">
-      <strong>Location:</strong> {{ restaurant?.location }}
+      <strong>Contact Number:</strong>
+      <span>{{ restaurant.contactNumber }}</span>
     </div>
     <div class="detail-item">
-      <strong>Opening Hours:</strong> {{ restaurant?.openingHours }}
-    </div>
-    <div class="detail-item">
-      <strong>Contact Number:</strong> {{ restaurant?.contactNumber }}
+      <strong>Category:</strong>
+      <span>{{ restaurant.category }}</span>
     </div>
   </div>
+<hr>
+  <h3>Menu</h3>
+  <ul class="menu-list">
+    <li *ngFor="let item of restaurant.menus">{{ item.menu }}</li>
+  </ul>
 </div>
