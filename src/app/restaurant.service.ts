@@ -7,7 +7,7 @@ import { Restaurant } from './model/restaurant.model';
   providedIn: 'root'
 })
 export class RestaurantService {
-  private apiUrl = 'http://localhost:3000/restaurants'; // Replace with your backend URL
+  private apiUrl = 'https://foodie-delight-backend-1.onrender.com/restaurants'; 
 
   constructor(private http: HttpClient) {}
 

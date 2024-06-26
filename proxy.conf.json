@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://localhost:3000",
+      "target": "https://foodie-delight-backend-1.onrender.com",
       "secure": false,
       "changeOrigin": true,
       "logLevel": "debug"
